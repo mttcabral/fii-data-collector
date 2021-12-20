@@ -7,8 +7,7 @@ REIT stands for "Real Estate Investment Trust" or in portuguese "Fundos de Inves
 This repository was made to handle a scientific initiation project.
 
 
-Name of the student: Mateus M. A. Cabral
-
+Name of the student: Mateus M. A. Cabral  
 Email of the student: mateuscabralalves@outlook.com
 
 Name of the advisor: Marcus H. S. Mendes
