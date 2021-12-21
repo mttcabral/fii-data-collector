@@ -1,0 +1,490 @@
+1640056115565	geckodriver	INFO	Listening on 127.0.0.1:47571
+1640056262181	geckodriver	INFO	Listening on 127.0.0.1:57569
+1640056745635	geckodriver	INFO	Listening on 127.0.0.1:33499
+1640056900704	geckodriver	INFO	Listening on 127.0.0.1:47581
+1640056903594	geckodriver	INFO	Listening on 127.0.0.1:51475
+1640056951959	geckodriver	INFO	Listening on 127.0.0.1:33571
+1640056952010	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35195" "-no-remote" "-profile" "/tmp/rust_mozprofilef8AYKL"
+
+(firefox:13925): Gtk-WARNING **: 00:22:32.341: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:13925): Gtk-WARNING **: 00:22:32.343: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:13925): Gtk-WARNING **: 00:22:32.344: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:13925): Gtk-WARNING **: 00:22:32.345: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640056952586	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilef8AYKL/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35195/devtools/browser/4260d538-eab0-41bc-af8b-a9e7043efe78
+1640056953843	Marionette	INFO	Listening on port 42083
+1640056953926	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640056957889	Marionette	INFO	Stopped listening on port 42083
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 13925, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox/src/firefox-95.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057008851	geckodriver	INFO	Listening on 127.0.0.1:43651
+1640057008856	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45289" "-no-remote" "-profile" "/tmp/rust_mozprofilehMuHzQ"
+
+(firefox:14208): Gtk-WARNING **: 00:23:29.276: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14208): Gtk-WARNING **: 00:23:29.279: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14208): Gtk-WARNING **: 00:23:29.281: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14208): Gtk-WARNING **: 00:23:29.281: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057009603	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehMuHzQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45289/devtools/browser/54c603ce-874e-4c9e-945f-5b270a74ddb3
+1640057010966	Marionette	INFO	Listening on port 41287
+1640057011076	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057021157	Marionette	INFO	Stopped listening on port 41287
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640057135429	geckodriver	INFO	Listening on 127.0.0.1:37591
+1640057135434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48109" "-no-remote" "-profile" "/tmp/rust_mozprofilexzOUnG"
+
+(firefox:14513): Gtk-WARNING **: 00:25:35.676: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14513): Gtk-WARNING **: 00:25:35.677: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14513): Gtk-WARNING **: 00:25:35.679: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14513): Gtk-WARNING **: 00:25:35.679: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057136063	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilexzOUnG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:48109/devtools/browser/e29652b0-2fe8-4a8a-b467-eb76c1188e98
+1640057137252	Marionette	INFO	Listening on port 32787
+1640057137358	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057156871	Marionette	INFO	Stopped listening on port 32787
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057211259	geckodriver	INFO	Listening on 127.0.0.1:36149
+1640057211265	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41627" "-no-remote" "-profile" "/tmp/rust_mozprofileYo5hZ8"
+
+(firefox:14758): Gtk-WARNING **: 00:26:51.559: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14758): Gtk-WARNING **: 00:26:51.561: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14758): Gtk-WARNING **: 00:26:51.563: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14758): Gtk-WARNING **: 00:26:51.563: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057211893	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileYo5hZ8/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:41627/devtools/browser/c01440d7-65cc-49a9-b442-31374d20d622
+1640057213069	Marionette	INFO	Listening on port 32813
+1640057213085	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057218021	Marionette	INFO	Stopped listening on port 32813
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057250633	geckodriver	INFO	Listening on 127.0.0.1:41963
+1640057250638	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48333" "-no-remote" "-profile" "/tmp/rust_mozprofile2Ihvkr"
+
+(firefox:14984): Gtk-WARNING **: 00:27:31.032: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14984): Gtk-WARNING **: 00:27:31.034: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14984): Gtk-WARNING **: 00:27:31.036: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:14984): Gtk-WARNING **: 00:27:31.036: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057251274	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2Ihvkr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:48333/devtools/browser/f030b09b-84ca-4fbb-a19e-bf2465b41535
+1640057252565	Marionette	INFO	Listening on port 44225
+1640057252659	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057258315	Marionette	INFO	Stopped listening on port 44225
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057286870	geckodriver	INFO	Listening on 127.0.0.1:55745
+1640057286878	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53093" "-no-remote" "-profile" "/tmp/rust_mozprofilekcIsZB"
+
+(firefox:15202): Gtk-WARNING **: 00:28:07.220: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15202): Gtk-WARNING **: 00:28:07.222: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15202): Gtk-WARNING **: 00:28:07.224: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15202): Gtk-WARNING **: 00:28:07.224: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057287507	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilekcIsZB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53093/devtools/browser/cc246ed7-4cb8-47b2-89b6-bc183126f8f0
+1640057288716	Marionette	INFO	Listening on port 37867
+1640057288800	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057313855	Marionette	INFO	Stopped listening on port 37867
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057378094	geckodriver	INFO	Listening on 127.0.0.1:33629
+1640057378114	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58631" "-no-remote" "-profile" "/tmp/rust_mozprofileaUMswP"
+
+(firefox:15442): Gtk-WARNING **: 00:29:38.561: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15442): Gtk-WARNING **: 00:29:38.564: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15442): Gtk-WARNING **: 00:29:38.566: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15442): Gtk-WARNING **: 00:29:38.567: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057378905	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileaUMswP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58631/devtools/browser/3b563148-3edf-4ea3-acc3-af1cb4b5a52e
+1640057380070	Marionette	INFO	Listening on port 45565
+1640057380134	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057385887	Marionette	INFO	Stopped listening on port 45565
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 15442, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox/src/firefox-95.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057451897	geckodriver	INFO	Listening on 127.0.0.1:35527
+1640057451905	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46897" "-no-remote" "-profile" "/tmp/rust_mozprofileX8krRa"
+
+(firefox:15690): Gtk-WARNING **: 00:30:52.165: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15690): Gtk-WARNING **: 00:30:52.166: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15690): Gtk-WARNING **: 00:30:52.168: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15690): Gtk-WARNING **: 00:30:52.168: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057452488	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileX8krRa/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46897/devtools/browser/c6ebd662-9539-48ff-87f9-e315c8103b42
+1640057454023	Marionette	INFO	Listening on port 46553
+1640057454121	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057464884	Marionette	INFO	Stopped listening on port 46553
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640057566697	geckodriver	INFO	Listening on 127.0.0.1:58615
+1640057566704	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "39937" "-no-remote" "-profile" "/tmp/rust_mozprofile81EXts"
+
+(firefox:15952): Gtk-WARNING **: 00:32:47.033: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15952): Gtk-WARNING **: 00:32:47.035: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15952): Gtk-WARNING **: 00:32:47.037: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:15952): Gtk-WARNING **: 00:32:47.037: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057567272	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile81EXts/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39937/devtools/browser/06a8c3c7-1e5f-44b9-96cb-7ff86f28b67c
+1640057568429	Marionette	INFO	Listening on port 42985
+1640057568522	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057573969	Marionette	INFO	Stopped listening on port 42985
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640057610391	geckodriver	INFO	Listening on 127.0.0.1:58327
+1640057610398	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "51543" "-no-remote" "-profile" "/tmp/rust_mozprofileH1OxMC"
+
+(firefox:16205): Gtk-WARNING **: 00:33:30.732: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16205): Gtk-WARNING **: 00:33:30.733: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16205): Gtk-WARNING **: 00:33:30.735: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16205): Gtk-WARNING **: 00:33:30.735: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057611005	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileH1OxMC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51543/devtools/browser/8502e0bb-b2ed-4c92-8067-7e13276d7c97
+1640057612168	Marionette	INFO	Listening on port 33371
+1640057612215	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057617053	Marionette	INFO	Stopped listening on port 33371
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640057740043	geckodriver	INFO	Listening on 127.0.0.1:49667
+1640057740068	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49409" "-no-remote" "-profile" "/tmp/rust_mozprofileyaW8vl"
+
+(firefox:16536): Gtk-WARNING **: 00:35:40.622: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16536): Gtk-WARNING **: 00:35:40.624: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16536): Gtk-WARNING **: 00:35:40.626: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16536): Gtk-WARNING **: 00:35:40.626: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057741150	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileyaW8vl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49409/devtools/browser/188ec435-4ddf-4722-b409-d29695cf0fe5
+!!! error running onStopped callback: TypeError: callback is not a function
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+1640057745808	Marionette	FATAL	Remote protocol server failed to start: [Exception... "Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIServerSocket.asyncListen]"  nsresult: "0xc1f30001 (NS_ERROR_NOT_INITIALIZED)"  location: "JS frame :: chrome://remote/content/marionette/server.js :: set acceptConnections :: line 89"  data: no] Stack trace: set acceptConnections()@server.js:89
+start()@server.js:114
+init/<()@Marionette.jsm:285
+observe()@resource://gre/modules/AsyncShutdown.jsm:575
+1640057751366	geckodriver	INFO	Listening on 127.0.0.1:56229
+1640057751371	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43199" "-no-remote" "-profile" "/tmp/rust_mozprofilecXPgYG"
+
+(firefox:16728): Gtk-WARNING **: 00:35:51.868: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16728): Gtk-WARNING **: 00:35:51.870: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16728): Gtk-WARNING **: 00:35:51.872: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16728): Gtk-WARNING **: 00:35:51.872: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057752243	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilecXPgYG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43199/devtools/browser/83444872-76ff-484f-a674-1393b164ef06
+1640057753519	Marionette	INFO	Listening on port 44683
+1640057753612	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057759469	Marionette	INFO	Stopped listening on port 44683
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057778600	geckodriver	INFO	Listening on 127.0.0.1:57459
+1640057778605	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "47635" "-no-remote" "-profile" "/tmp/rust_mozprofileSHTm4M"
+
+(firefox:16963): Gtk-WARNING **: 00:36:18.958: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16963): Gtk-WARNING **: 00:36:18.960: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16963): Gtk-WARNING **: 00:36:18.962: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:16963): Gtk-WARNING **: 00:36:18.962: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057779225	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileSHTm4M/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:47635/devtools/browser/70853d31-4088-4f50-9023-8779a8a5ce4b
+1640057780599	Marionette	INFO	Listening on port 34569
+1640057780621	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057789805	Marionette	INFO	Stopped listening on port 34569
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640057808258	geckodriver	INFO	Listening on 127.0.0.1:56145
+1640057808264	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44839" "-no-remote" "-profile" "/tmp/rust_mozprofilet1m7lx"
+
+(firefox:17193): Gtk-WARNING **: 00:36:48.588: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17193): Gtk-WARNING **: 00:36:48.589: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17193): Gtk-WARNING **: 00:36:48.591: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17193): Gtk-WARNING **: 00:36:48.591: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640057808946	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilet1m7lx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:44839/devtools/browser/93ab4069-7327-4f17-9af0-82a35def8b2b
+1640057810117	Marionette	INFO	Listening on port 40541
+1640057810181	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://vlibras.gov.br/app/vlibras-plugin.js, line 81: unreachable code after return statement
+1640057824227	Marionette	INFO	Stopped listening on port 40541
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640058155511	geckodriver	INFO	Listening on 127.0.0.1:39397
+1640058155515	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "59577" "-no-remote" "-profile" "/tmp/rust_mozprofilemzBCz6"
+
+(firefox:17686): Gtk-WARNING **: 00:42:35.739: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17686): Gtk-WARNING **: 00:42:35.741: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17686): Gtk-WARNING **: 00:42:35.742: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:17686): Gtk-WARNING **: 00:42:35.743: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058155988	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemzBCz6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59577/devtools/browser/77f8b01a-5a0e-45aa-b56b-9b0551a5200e
+1640058157286	Marionette	INFO	Listening on port 46279
+1640058157332	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058168134	Marionette	INFO	Stopped listening on port 46279
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640058355536	geckodriver	INFO	Listening on 127.0.0.1:34845
+1640058355543	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43499" "-no-remote" "-profile" "/tmp/rust_mozprofileBwK1nn"
+
+(firefox:18227): Gtk-WARNING **: 00:45:55.879: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18227): Gtk-WARNING **: 00:45:55.880: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18227): Gtk-WARNING **: 00:45:55.882: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18227): Gtk-WARNING **: 00:45:55.882: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058356233	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileBwK1nn/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43499/devtools/browser/e0e0a958-e34d-4869-b8c1-9c7ec7079b9a
+1640058357235	Marionette	INFO	Listening on port 40313
+1640058357259	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058360598	Marionette	INFO	Stopped listening on port 40313
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640058495867	geckodriver	INFO	Listening on 127.0.0.1:42673
+1640058495872	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42519" "-no-remote" "-profile" "/tmp/rust_mozprofilejzKAF3"
+
+(firefox:18578): Gtk-WARNING **: 00:48:16.220: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18578): Gtk-WARNING **: 00:48:16.221: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18578): Gtk-WARNING **: 00:48:16.223: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18578): Gtk-WARNING **: 00:48:16.223: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058496649	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilejzKAF3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42519/devtools/browser/764d59eb-7b39-4c7a-84e8-d0b221ab82b5
+1640058497869	Marionette	INFO	Listening on port 41237
+1640058497889	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058502468	Marionette	INFO	Stopped listening on port 41237
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640058510454	geckodriver	INFO	Listening on 127.0.0.1:48275
+1640058510461	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "46053" "-no-remote" "-profile" "/tmp/rust_mozprofileYFjMfJ"
+*** You are running in headless mode.
+1640058510805	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileYFjMfJ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46053/devtools/browser/f46199ac-5c11-41d7-abb9-e7c08f6c076a
+1640058511821	Marionette	INFO	Listening on port 41565
+1640058511880	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058522961	geckodriver	INFO	Listening on 127.0.0.1:40909
+1640058522966	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46135" "-no-remote" "-profile" "/tmp/rust_mozprofile6p82G4"
+
+(firefox:18980): Gtk-WARNING **: 00:48:43.208: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18980): Gtk-WARNING **: 00:48:43.210: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18980): Gtk-WARNING **: 00:48:43.211: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:18980): Gtk-WARNING **: 00:48:43.212: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058523493	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6p82G4/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46135/devtools/browser/ac4c32a8-2510-497f-9496-689c09c624d6
+1640058524726	Marionette	INFO	Listening on port 45843
+1640058524783	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058533057	Marionette	INFO	Stopped listening on port 45843
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1640058619347	geckodriver	INFO	Listening on 127.0.0.1:47615
+1640058619357	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49637" "-no-remote" "-profile" "/tmp/rust_mozprofileOqgBcl"
+
+(firefox:19329): Gtk-WARNING **: 00:50:19.660: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19329): Gtk-WARNING **: 00:50:19.662: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19329): Gtk-WARNING **: 00:50:19.663: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19329): Gtk-WARNING **: 00:50:19.664: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058619914	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOqgBcl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49637/devtools/browser/ae4dba8b-4b6d-47d5-bbba-962fd15354dc
+1640058621156	Marionette	INFO	Listening on port 39181
+1640058621182	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058626559	Marionette	INFO	Stopped listening on port 39181
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640058640130	geckodriver	INFO	Listening on 127.0.0.1:39619
+1640058640135	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54385" "-no-remote" "-profile" "/tmp/rust_mozprofilevmeBkF"
+
+(firefox:19540): Gtk-WARNING **: 00:50:40.382: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19540): Gtk-WARNING **: 00:50:40.385: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19540): Gtk-WARNING **: 00:50:40.387: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:19540): Gtk-WARNING **: 00:50:40.387: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640058640715	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilevmeBkF/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54385/devtools/browser/f6e8056b-6e1c-422b-9824-5893f293598e
+1640058641938	Marionette	INFO	Listening on port 44391
+1640058641953	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640058888719	Marionette	INFO	Stopped listening on port 44391
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
