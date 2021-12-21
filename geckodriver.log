@@ -1702,3 +1702,64 @@ DevTools listening on ws://localhost:35339/devtools/browser/1c7213ae-390b-41ef-a
 1640119134145	Marionette	INFO	Listening on port 41093
 1640119134167	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1640119143403	Marionette	INFO	Stopped listening on port 41093
+1640128650503	geckodriver	INFO	Listening on 127.0.0.1:52413
+1640128650948	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54819" "-no-remote" "-profile" "/tmp/rust_mozprofilegvMTfr"
+
+(firefox:5020): Gtk-WARNING **: 20:17:34.815: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5020): Gtk-WARNING **: 20:17:34.817: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5020): Gtk-WARNING **: 20:17:34.818: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5020): Gtk-WARNING **: 20:17:34.818: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640128655297	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilegvMTfr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54819/devtools/browser/7b0e861a-c893-437e-a526-c9f32c740dcd
+1640128658289	Marionette	INFO	Listening on port 40447
+1640128658419	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640128666962	Marionette	INFO	Stopped listening on port 40447
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1640128724997	geckodriver	INFO	Listening on 127.0.0.1:56655
+1640128725002	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53951" "-no-remote" "-profile" "/tmp/rust_mozprofileY1T3ml"
+
+(firefox:5289): Gtk-WARNING **: 20:18:45.412: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5289): Gtk-WARNING **: 20:18:45.414: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5289): Gtk-WARNING **: 20:18:45.417: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5289): Gtk-WARNING **: 20:18:45.417: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640128725694	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileY1T3ml/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53951/devtools/browser/a8784c6a-5236-4657-93db-d9cf2c6ab4c0
+1640128727243	Marionette	INFO	Listening on port 45389
+1640128727333	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640128736621	Marionette	INFO	Stopped listening on port 45389
+1640128743117	geckodriver	INFO	Listening on 127.0.0.1:39645
+1640128743122	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41969" "-no-remote" "-profile" "/tmp/rust_mozprofilef86146"
+
+(firefox:5510): Gtk-WARNING **: 20:19:03.469: Theme directory 16x16@2x/places of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5510): Gtk-WARNING **: 20:19:03.472: Theme directory 24x24/apps of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5510): Gtk-WARNING **: 20:19:03.474: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+
+(firefox:5510): Gtk-WARNING **: 20:19:03.475: Theme directory 24x24@2x/panel of theme Mkos-Big-Sur-Transparent-Panel has no size field
+
+1640128743773	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilef86146/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:41969/devtools/browser/2f32aced-623d-49a0-9bab-9fc88c1114f8
+1640128745244	Marionette	INFO	Listening on port 34031
+1640128745344	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1640128754657	Marionette	INFO	Stopped listening on port 34031

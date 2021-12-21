@@ -17,11 +17,13 @@ def scraping_html():
 
     # Defining Firefox's options
     options = Options()
-    options.headless = False
+    options.headless = True
     browser = webdriver.Firefox(options=options)
 
     # Browser access the url and refresh it
     browser.get(url)
+    # Wait until the browser opens
+    time.sleep(5)
     browser.refresh()
 
     # Wait until the page loads completely before select an option
