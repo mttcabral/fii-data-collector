@@ -12,4 +12,4 @@ Email of the advisor: marcus.mendes@ufv.br
 
 ## How to run the project
 
-Dependencies: Beaultiful Soup, Selenium, geckodriver, pandas
+Dependencies: Beaultiful Soup, Selenium, geckodriver, pandas, lxml
