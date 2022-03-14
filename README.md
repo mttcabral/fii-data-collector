@@ -11,3 +11,5 @@ Name of the advisor: Marcus H. S. Mendes
 Email of the advisor: marcus.mendes@ufv.br
 
 ## How to run the project
+
+Dependencies: Beaultiful Soup, Selenium, geckodriver, pandas, lxml
