@@ -1,4 +1,3 @@
-
 # REIT Data Collector
 
 This repository was made to handle a scientific initiation project.
@@ -12,8 +11,6 @@ Name of the advisor: Marcus H. S. Mendes
 Email of the advisor: marcus.mendes@ufv.br
 
 ## Dependencies
-
-`Virtualenv` is being used to manage Python dependencies.
 
 | **Dependence Name** | **Comment**                    |
 |---------------------|--------------------------------|
