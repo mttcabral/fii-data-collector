@@ -6,6 +6,8 @@ from selenium.webdriver.support.select import Select
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+import pandas as pd
+
 
 def scraping_html():
     """
@@ -56,3 +58,27 @@ def scraping_html():
     soup = BeautifulSoup(html_content, 'html.parser')
 
     table_ifix = soup.find()
+
+    with open("/home/mats/Desktop/table_ifix.html", "w") as file:
+        file.write(str(table_ifix))
+
+
+def html_table_to_dataframe():
+    with open("../../../Desktop/table_ifix.html", "r") as file:
+        table_ifix = file.read()
+        file.close()
+
+    # pd.read_html return a list of DataFrames, in the html code "table_ifix" there is just
+    # one table, so the slicing after the command is to pass the dataframe instead of a list with
+    # just one DataFrame
+    df_table_ifix = pd.read_html(table_ifix)[0]
+
+    df_table_ifix = df_table_ifix.drop(columns=["Ação", "Part. (%)", "Tipo", "Qtde. Teórica"])
+    df_table_ifix = df_table_ifix.drop([103, 104])
+
+    code_list_of_REIT = []
+
+    for x in range(0, len(df_table_ifix.values.tolist())):
+        code_list_of_REIT.append(df_table_ifix.values.tolist()[x][0][0:4])
+
+    print(code_list_of_REIT)
