@@ -12,16 +12,16 @@ Email of the advisor: marcus.mendes@ufv.br
 
 ## Dependencies
 
-| **Dependence Name** | **Comment**                    |
-|---------------------|--------------------------------|
-| Python (3.9)        |                                |
-| Geckodriver         |                                |
-| Beautiful Soup      | Installable with `pip install` |
-| Selenium            | Installable with `pip install` |
-| Pandas              | Installable with `pip install` |
-| lxml                | Installable with `pip install` |
+| **Dependence Name** | **Comment**    |
+|---------------------|----------------|
+| Python (3.9)        |                |
+| Geckodriver         |                |
+| Beautiful Soup      | Python Package |
+| Selenium            | Python Package |
+| Pandas              | Python Package |
+| lxml                | Python Package |
 
-- In order to install all python (with `pip install`) packages, clone this repository and run the following command:
+- In order to install all python packages, clone this repository and run the following command:
 
 ```
 pip install -r requirements.txt
