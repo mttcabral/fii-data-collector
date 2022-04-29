@@ -2,7 +2,7 @@
 
 This repository was made to handle a scientific initiation project.
 
-In Portuguese, *FII* stands for "*Fundos de Investimento Imobiliário*". It's like Real estate investment trusts (**REIT**). Although the documentation is in English, a fraction of the given name it's in Portuguese, because of the differences between US REIT and Brazil *FII*.
+In Portuguese, *FII* stands for "*Fundos de Investimento Imobiliário*". It's like Real Estate Investment Trusts (**REIT**), but is from Brazil. Although the documentation is in English, a fraction of the given name it's in Portuguese, because of the differences between US REIT and Brazil *FII*.
 
 Name of the student: Mateus M. A. Cabral  
 Email of the student: mateuscabralalves@outlook.com
