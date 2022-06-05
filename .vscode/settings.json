@@ -1,6 +1,8 @@
 {
     "python.formatting.provider": "autopep8",
     "cSpell.words": [
-        "ifix"
+        "Diario",
+        "ifix",
+        "Iframe"
     ]
 }

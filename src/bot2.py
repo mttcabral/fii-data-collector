@@ -5,15 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
 import pandas as pd
-import bot1
 
 
 def scrape_closing_quotation():
-    # This method will return a dictionary, where the key will be the
+    """
+    # This method will write a JSON file, where the key will be the
     # 'FII' code, and the value the closing quotation of that 'FII'
+    """
 
     fii_closing_quotation_dict = {}
-    fii_code_list = get_fii_code_list()[0:2]
+    fii_code_list = get_fii_code_list()
     # Must be MM/YYYY
     date = '05/2022'
 
@@ -23,21 +24,12 @@ def scrape_closing_quotation():
     browser = webdriver.Firefox(options=options)
 
     # The B3's stores the closing quotation in the following url
-    base_url = 'https://bvmf.bmfbovespa.com.br/SIG/FormConsultaMercVista.asp?strTipoResumo=RES_MERC_VISTA&strSocEmissora={fii_name}&strDtReferencia={date}&strIdioma=P&intCodNivel=2&intCodCtrl=160'
+    base_url = 'https://bvmf.bmfbovespa.com.br/SIG/FormConsultaMercVista.asp?strTipoResumo=RES_MERC_VISTA&strSocEmissora={fii_name}&strDtReferencia={date}&strIdioma=P&intCodNivel=2&intCodCtrl=160'  # noqa: E501
 
     for x in range(len(fii_code_list)):
-        if(x != 0):
-            print('\n\n')
-        print('length of FII code list: '+str(len(fii_code_list)))
-        print('FII name: '+fii_code_list[x])
-        print('FII list: ', fii_code_list)
-        print('x: '+str(x))
-
         # By using a placeholder, the bot can search for the
         # desired 'FII' at the desired date
         url = base_url.format(fii_name=fii_code_list[x], date=date)
-
-        print('\n'+url)
 
         # Accessing formatted url
         browser.get(url)
@@ -45,43 +37,43 @@ def scrape_closing_quotation():
         try:
             # Wait until the table loads
             WebDriverWait(browser, 30).until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody')))
+                (By.XPATH, '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody')))  # noqa: E501
         except:
             print("bot2: Table not found!")
 
-        # Getting all the rows contained in the table
-        rows = browser.find_elements(
-            By.XPATH, '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody/tr')
+        """
+        # In B3's site there is a table containing the closing quotation, it
+        # is stored in the 'desired_row' and 'desired_column'
+        """
 
-        # Taking the penultimate row, i.e. the row containing the closing
-        # quotation of that 'FII', it is done by taking the number of rows in the
+        # Getting the number of rows in the table
+        number_of_rows = len(browser.find_elements(
+            By.XPATH, '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody/tr'))
+
+        # Taking the XPATH for the penultimate row, i.e. the row
+        # containing  the closing quotation of that 'FII', it
+        # is done by taking the number of rows in the
         # table, subtracting 1, and assign the row index to that number
-        desired_row_xpath = '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody/tr[{penultimate_row}]'
-        desired_row_xpath = desired_row_xpath.format(
-            penultimate_row=(len(rows)-1))
+        desired_row_xpath = '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody/tr[{penultimate_row}]'.format(  # noqa: E501
+            penultimate_row=(number_of_rows-1))
 
-        # ------
-        # desired_row = browser.find_element(By.XPATH, desired_row_xpath)
-        # ------
+        number_of_columns = len(browser.find_elements(
+            By.XPATH, (desired_row_xpath+'/td')))
 
-        columns = browser.find_elements(By.XPATH, (desired_row_xpath+'/td'))
+        # Taking the XPATH for the last column of 'desired_row'
+        desired_column_xpath = (
+            desired_row_xpath+'/td[{last_column}]').format(last_column=(number_of_columns))  # noqa: E501
 
-        desired_column_xpath = desired_row_xpath+'/td[{last_column}]'
-        desired_column_xpath = desired_column_xpath.format(
-            last_column=(len(columns)))
+        # Scraping the text contained in the 'desired_row' and 'desired_column'
+        closing_quotation = browser.find_element(
+            By.XPATH, desired_column_xpath).get_attribute("innerText")
 
-        desired_column = browser.find_element(By.XPATH, desired_column_xpath)
-
-        closing_quotation = desired_column.get_attribute("innerText")
-
-        # browser.quit()
-
+        # The 'FII' of name 'x' have a 'closing_quotation'
         fii_closing_quotation_dict[fii_code_list[x]] = closing_quotation
-
-        print(fii_closing_quotation_dict)
 
     browser.quit()
 
+    # Writing the dict as JSON
     with open('data/FII_closing_quotation.json', 'w') as file:
         json.dump(fii_closing_quotation_dict, file)
 

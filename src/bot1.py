@@ -9,10 +9,12 @@ import os
 
 
 def scrape_id_and_participation():
+    """
     # This bot is made to collect ID and percentage participation
     # of IFIX from B3's site by using HTML code
+    """
 
-    url = "https://sistemaswebb3-listados.b3.com.br/indexPage/theorical/IFIX?language=pt-br"
+    url = "https://sistemaswebb3-listados.b3.com.br/indexPage/theorical/IFIX?language=pt-br"  # noqa: E501
 
     # Setting up browser
     options = Options()
@@ -26,7 +28,7 @@ def scrape_id_and_participation():
 
     try:
         WebDriverWait(browser, 30).until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="divContainerIframeB3"]/div/div[1]/form/div[3]/div/table/tbody')))
+            (By.XPATH, '//*[@id="divContainerIframeB3"]/div/div[1]/form/div[3]/div/table/tbody')))  # noqa: E501
     except:
         print("bot1: Table not found!")
 
