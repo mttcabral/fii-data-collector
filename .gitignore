@@ -1,6 +1,7 @@
 # General
 geckodriver.log
 table_ifix.html
+data
 
 # JetBrains
 .idea/**/workspace.xml

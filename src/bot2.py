@@ -1,9 +1,11 @@
-from bot1 import html_table_to_dataframe
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import json
+import pandas as pd
+import bot1
 
 
 def scrape_closing_quotation():
@@ -11,7 +13,7 @@ def scrape_closing_quotation():
     # 'FII' code, and the value the closing quotation of that 'FII'
 
     fii_closing_quotation_dict = {}
-    fii_code_list = html_table_to_dataframe()
+    fii_code_list = get_fii_code_list()[0:2]
     # Must be MM/YYYY
     date = '05/2022'
 
@@ -58,7 +60,9 @@ def scrape_closing_quotation():
         desired_row_xpath = desired_row_xpath.format(
             penultimate_row=(len(rows)-1))
 
-        desired_row = browser.find_element(By.XPATH, desired_row_xpath)
+        # ------
+        # desired_row = browser.find_element(By.XPATH, desired_row_xpath)
+        # ------
 
         columns = browser.find_elements(By.XPATH, (desired_row_xpath+'/td'))
 
@@ -75,3 +79,36 @@ def scrape_closing_quotation():
         fii_closing_quotation_dict[fii_code_list[x]] = closing_quotation
 
         print(fii_closing_quotation_dict)
+
+    browser.quit()
+
+    with open('data/FII_closing_quotation.json', 'w') as file:
+        json.dump(fii_closing_quotation_dict, file)
+
+
+def get_fii_code_list():
+    with open('data/table_ifix.html', 'r') as file:
+        table_ifix = file.read()
+        file.close()
+
+    # pd.read_html return a list of DataFrames, in the html code "table_ifix"
+    # there is just one table, so the slicing after the command is to pass
+    # the dataframe instead of a list with just one DataFrame
+    df_table_ifix = pd.read_html(table_ifix)[0]
+
+    # Dropping undesired columns
+    df_table_ifix = df_table_ifix.drop(
+        columns=["Ação", "Part. (%)", "Tipo", "Qtde. Teórica"]
+    )
+
+    # Dropping undesired rows
+    number_of_rows = df_table_ifix.shape[0]
+    rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
+    df_table_ifix = df_table_ifix.drop(rows_to_drop)
+
+    fii_code_list = []
+
+    for x in range(0, len(df_table_ifix.values.tolist())):
+        fii_code_list.append(df_table_ifix.values.tolist()[x][0][0:4])
+
+    return fii_code_list
