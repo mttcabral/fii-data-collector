@@ -15,7 +15,7 @@ def scraping_html():
 
     # Setting up browser
     options = Options()
-    options.headless = False
+    options.headless = True
     browser = webdriver.Firefox(options=options)
 
     # Accessing url
