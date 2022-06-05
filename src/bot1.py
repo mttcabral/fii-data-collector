@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def scraping_html():
+def scrape_id_and_participation():
     # This bot is made to collect ID and percentage participation
     # of IFIX from B3's site by using HTML code
 
