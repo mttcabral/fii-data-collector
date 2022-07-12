@@ -23,7 +23,7 @@ def scrape_id_and_participation():
 
     # Accessing url and refreshing the page
     browser.get(url)
-    browser.implicitly_wait(5)
+    browser.implicitly_wait(10)
     browser.refresh()
 
     try:
