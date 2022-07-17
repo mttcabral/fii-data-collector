@@ -1,0 +1,3 @@
+[submodule "submodules/Bot-b3"]
+	path = submodules/Bot-b3
+	url = git@github.com:PLPaulino/Bot-b3.git
