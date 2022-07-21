@@ -7,11 +7,13 @@ import json
 import pandas as pd
 
 
+"""
+# This method will write a JSON file, where the key will be the
+# 'FII' code, and the value the closing quotation of that 'FII'
+"""
+
+
 def scrape_closing_quotation():
-    """
-    # This method will write a JSON file, where the key will be the
-    # 'FII' code, and the value the closing quotation of that 'FII'
-    """
 
     fii_closing_quotation_dict = {}
     fii_code_list = get_fii_code_list()

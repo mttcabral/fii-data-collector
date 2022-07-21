@@ -7,13 +7,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
 
+"""
+# This bot is made to collect ID and percentage participation
+# of IFIX from B3's site by using HTML code
+"""
+
 
 def scrape_id_and_participation():
-    """
-    # This bot is made to collect ID and percentage participation
-    # of IFIX from B3's site by using HTML code
-    """
-
     url = "https://sistemaswebb3-listados.b3.com.br/indexPage/theorical/IFIX?language=pt-br"  # noqa: E501
 
     # Setting up browser
