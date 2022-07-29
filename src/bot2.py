@@ -8,7 +8,7 @@ import pandas as pd
 
 
 """
-# This method will write a JSON file, where the key will be the
+# This bot will write a JSON file, where the key will be the
 # 'FII' code, and the value the closing quotation of that 'FII'
 """
 
@@ -81,7 +81,8 @@ def scrape_closing_quotation():
 
 
 def get_fii_code_list():
-    with open('data/table_ifix.html', 'r') as file:
+    # Relative path = 'data/table_ifix.html'
+    with open('/home/mats/Projects/fii-data-collector/data/table_ifix.html', 'r') as file:
         table_ifix = file.read()
         file.close()
 
