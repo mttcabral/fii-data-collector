@@ -1,8 +1,15 @@
 {
     "python.formatting.provider": "autopep8",
     "cSpell.words": [
+        "conteudo",
+        "Cotistas",
+        "Detalhe",
         "Diario",
         "ifix",
-        "Iframe"
+        "Iframe",
+        "Notícias",
+        "Paulino",
+        "provento",
+        "valores"
     ]
 }
