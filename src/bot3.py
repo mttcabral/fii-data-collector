@@ -17,174 +17,98 @@ import json
 # GitHub link: https://github.com/PLPaulino
 """
 
-# The following code was take from a co-worker (Pedro Lucas Paulino), therefore
-# it's in Portuguese, the code will be refactored to English afterwards
+
+def scrape_proceeds(fii, from_date, to_date):
+
+    print(f"\nFII: {fii}")
+
+    option = Options()
+    option.headless = True
+    browser = webdriver.Firefox(options=option)
+
+    # Changing date format from dd/mm/yyyy to yyyy/mm/dd
+    from_date = from_date.split(
+        '/')[2] + '-' + from_date.split('/')[1] + '-' + from_date.split('/')[0]
+    to_date = to_date.split(
+        '/')[2] + '-' + to_date.split('/')[1] + '-' + to_date.split('/')[0]
+
+    url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/ListarTitulosNoticias?agencia=18&palavra={fii}&dataInicial={from_date}&dataFinal={to_date}'
+    browser.get(url)
+
+    # The place where the proceeds can be found is called "Notícias"
+    # (B3's nomenclature) where "Notícias" (Portuguese) means "News" (English)
+    news_json = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body")))
+    html_json = news_json.get_attribute('outerHTML')
+    soup_json = BeautifulSoup(html_json, 'html.parser')
+
+    dict_news = json.loads(soup_json.text)
+
+    news_credentials = []
+    identifier = "Aviso aos Cotistas"
+
+    # List of news containing the identifier
+    desired_news = (list(filter(lambda dict: identifier in str(
+        dict['NwsMsg']['headline']), dict_news)))
+
+    # The desired_news is the one containing "N"
+    # at the end
+    for x in range(len(desired_news)):
+        if (desired_news[x]['NwsMsg']['headline'][-2] == 'N'):
+            id_news = desired_news[x]['NwsMsg']['id']
+            date_news = desired_news[x]['NwsMsg']['dateTime']
+            break
+
+    news_credentials.append(id_news)
+    news_credentials.append(date_news)
+
+    # Applying the 'news_credentials' to get the correct url
+    url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/Detail?idNoticia={news_credentials[0]}&agencia=18&dataNoticia={news_credentials[1]}'
+    browser.get(url)
+
+    # The link for the table is inside <pre> (HTML Tag)
+    pre_tag = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.ID, "conteudoDetalhe")))
+    pre_tag_html = pre_tag.get_attribute('outerHTML')
+    soup_pre_tag = BeautifulSoup(pre_tag_html, 'html.parser')
+
+    # Collecting all links inside <pre> tag
+    for a_tag in soup_pre_tag.findAll('a'):
+        links = str(a_tag['href']).split('=')
+        id_table = links[1]
+
+    url_table = 'https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=' + \
+        id_table+'&#toolbar=0'
+
+    browser.get(url_table)
+
+    WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, '/html/body/table[2]')))
+
+    table = browser.find_element(By.XPATH, '/html/body/table[2]')
+    table_html = table.get_attribute('outerHTML')
+    soup_table = BeautifulSoup(table_html, 'html.parser')
+
+    # Scraping the data inside the table
+    data = []
+    for span in soup_table.findAll('span', class_='dado-valores'):
+        data.append(span.text)
+
+    proceeds = data[5].replace(',', '.')
+    proceeds = {fii: proceeds}
+
+    return proceeds
 
 
 def bot3():
-    fiis = get_fii_code_list()
-    print(execucao_tudo(fiis[2]))
+    period = get_period()
+    from_date = period[0]
+    to_date = period[1]
 
+    fii = get_fii_code_list()[2]
+    dados_bot1 = scrape_proceeds(fii, from_date, to_date)
 
-def execucao_tudo(nome):
-    option = Options()
-    option.headless = True
-
-    try:
-        browser = webdriver.Firefox(options=option)
-
-        # definindo datas inicias e finais para ser parâmentros de execução referente ao bot1
-        datas = get_period()
-        data_inicial = datas[0]
-        data_final = datas[1]
-
-        # executando o bot1 e alocando os dados recebidos em uma variável
-        dados_bot1 = get_dados(data_inicial, data_final, nome, browser)
-
-        return dados_bot1
-
-    except:
-        print("Erro! Falha ao concluir o scraping.")
-
-    finally:
-        browser.quit()
-
-
-def get_dados(data_inicial, data_final, nome, browser):
-
-    print(f"\n\nNome: {nome}")
-
-    try:
-        """
-        # Function: efetuar_pesquisa
-        """
-        data_final_format = data_final.split(
-            '/')[2] + '-' + data_final.split('/')[1] + '-' + data_final.split('/')[0]
-        data_inicial_format = data_inicial.split(
-            '/')[2] + '-' + data_inicial.split('/')[1] + '-' + data_inicial.split('/')[0]
-
-        url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/ListarTitulosNoticias?agencia=18&palavra={nome}&dataInicial={data_inicial_format}&dataFinal={data_final_format}'
-        browser.get(url)
-
-        arquivo_json = WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body")))
-        html_arquivo_json = arquivo_json.get_attribute('outerHTML')
-        soup_json = BeautifulSoup(html_arquivo_json, 'html.parser')
-        list_dicionarios_noticia = json.loads(soup_json.text)
-        """
-        # END
-        """
-
-        """
-        # Function: encontrar_credenciais_noticia_qualificada
-        """
-        credenciais = []
-        identificador = "Aviso aos Cotistas"
-
-        lista_dic_qualificado = (list(filter(lambda dicionario: identificador in str(
-            dicionario['NwsMsg']['headline']), list_dicionarios_noticia)))
-
-        for x in range(len(lista_dic_qualificado)):
-            if (lista_dic_qualificado[x]['NwsMsg']['headline'][-2] == 'N'):
-                incremento_id = lista_dic_qualificado[x]['NwsMsg']['id']
-                break
-
-        incremento_data_noticia = lista_dic_qualificado[-1]['NwsMsg']['dateTime']
-
-        credenciais.append(incremento_id)
-        credenciais.append(incremento_data_noticia)
-        credenciais_noticia = credenciais
-        """
-        # END
-        """
-
-        """
-        # Function: solicitar_noticia_qualificada
-        """
-        url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/Detail?idNoticia={credenciais_noticia[0]}&agencia=18&dataNoticia={credenciais_noticia[1]}'
-        browser.get(url)
-
-        # selecionado o conteúdo html da pagina de notícia encotrada
-        link = WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.ID, "conteudoDetalhe")))
-        html_link = link.get_attribute('outerHTML')
-        soup_link = BeautifulSoup(html_link, 'html.parser')
-        """
-        # END
-        """
-
-        """
-        # Function: encontrar_id__url_tabela
-        """
-        for ancora in soup_link.findAll('a'):
-            lista_link = str(ancora['href']).split('=')
-            id_tabela = lista_link[1]
-
-        url_tabela = 'https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=' + \
-            id_tabela+'&#toolbar=0'
-        """
-        # END
-        """
-
-        #
-        #
-        #
-        browser.get(url_tabela)
-        # a partir do 'xpath' encotra-se a tabela e logo em seguida é armazenada em uma variável
-        WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, '/html/body/table[2]')))
-
-        tabela = browser.find_element(By.XPATH, '/html/body/table[2]')
-        text_para_testar = browser.find_element(
-            By.XPATH, '/html/body/table[1]/tbody/tr[4]/td[4]')
-
-        # extrai o html da tabela que logo em seguida é retornado pela função
-        html_tabela = tabela.get_attribute('outerHTML')
-        soup_tabela = BeautifulSoup(html_tabela, 'html.parser')
-        #
-        #
-        #
-
-        """
-        # Function: formata_tabela_bot1
-        """
-        soup_dados = []
-
-        # solicitando os dados no interior da tabela
-        for span in soup_tabela.findAll('span', class_='dado-valores'):
-            soup_dados.append(span.text)
-        """
-        # END
-        """
-
-        # acrescenta '11' ao final do nome do fiis
-        nome_formato_11 = (str(nome + "11"))
-
-        # test
-        htmml = text_para_testar.get_attribute('outerHTML')
-        soup_tabela2 = BeautifulSoup(htmml, 'html.parser')
-        if (soup_tabela2.get_text() == nome_formato_11):
-            print("AIAIAI")
-        #
-        """
-        # Function: formata_valor_provento
-        """
-        string_valor_provento = soup_dados[5].split(',')
-        valor_provento = float(
-            string_valor_provento[0] + '.' + string_valor_provento[1])
-        """
-        # END
-        """
-
-        valor_provento = {nome: valor_provento}
-
-        return valor_provento
-
-    except():
-        print("Erro de execução!!!")
-
-    finally:
-        print(f"{nome}: Processo de tentativa finalisado.")
+    print(dados_bot1)
 
 
 bot3()
