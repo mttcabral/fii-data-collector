@@ -18,8 +18,8 @@ from date import get_period
 
 def scrape_id_and_participation():
     """
-    # This function collect the ID and percentage participation
-    # of IFIX from B3's site and save it as a HTML code
+    # Function task: scrape the ID and participation (in %)
+    # of each 'FII' (from B3's site) and save it as a HTML file
     """
 
     url = "https://sistemaswebb3-listados.b3.com.br/indexPage/theorical/IFIX?language=pt-br"  # noqa: E501
@@ -74,12 +74,13 @@ def scrape_id_and_participation():
 
 def scrape_closing_quotation():
     """
-    # This function creates a JSON file, where the key is the
-    # 'FII' code, and the value is the closing quotation of that 'FII'
+    # Function task: scrape the closing quotation and
+    # save it in a JSON file, where the key is the 'FII'
+    # ID, and the value is the closing quotation of that 'FII'
     """
 
     fii_closing_quotation_dict = {}
-    fii_code_list = get_fii_code_list()
+    fii_id_list = get_fii_id_list()
     # Must be MM/YYYY
     date = '05/2022'
 
@@ -91,10 +92,10 @@ def scrape_closing_quotation():
     # The B3's stores the closing quotation in the following url
     base_url = 'https://bvmf.bmfbovespa.com.br/SIG/FormConsultaMercVista.asp?strTipoResumo=RES_MERC_VISTA&strSocEmissora={fii_name}&strDtReferencia={date}&strIdioma=P&intCodNivel=2&intCodCtrl=160'  # noqa: E501
 
-    for x in range(len(fii_code_list)):
+    for x in range(len(fii_id_list)):
         # By using a placeholder, the bot can search for the
         # desired 'FII' at the desired date
-        url = base_url.format(fii_name=fii_code_list[x], date=date)
+        url = base_url.format(fii_name=fii_id_list[x], date=date)
 
         # Accessing formatted url
         browser.get(url)
@@ -134,7 +135,7 @@ def scrape_closing_quotation():
             By.XPATH, desired_column_xpath).get_attribute("innerText")
 
         # The 'FII' of name 'x' have a 'closing_quotation'
-        fii_closing_quotation_dict[fii_code_list[x]] = closing_quotation
+        fii_closing_quotation_dict[fii_id_list[x]] = closing_quotation
 
     browser.quit()
 
@@ -145,7 +146,7 @@ def scrape_closing_quotation():
 
 def scrape_proceeds(fii, from_date, to_date):
     """
-    # This function collect the proceeds
+    # Function task: scrape the proceeds
     # Note: The translation (Portuguese (provento) -> English  (proceeds))
     # might not be very accurate
     #
@@ -243,11 +244,11 @@ def create_data_dir():
         print("----------Create 'data' directory!----------")
 
 
-def get_fii_code_list():
+def get_fii_id_list():
     """
     # Function task: from 'data/table_ifix.html', collected
     # by 'scrape_id_and_participation' function, return
-    # a list that contains all 'FII' code
+    # a list containing the 'FII' IDs
     """
 
     # Relative path = 'data/table_ifix.html'
@@ -270,12 +271,12 @@ def get_fii_code_list():
     rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
     df_table_ifix = df_table_ifix.drop(rows_to_drop)
 
-    fii_code_list = []
+    fii_id_list = []
 
     for x in range(0, len(df_table_ifix.values.tolist())):
-        fii_code_list.append(df_table_ifix.values.tolist()[x][0][0:4])
+        fii_id_list.append(df_table_ifix.values.tolist()[x][0][0:4])
 
-    return fii_code_list
+    return fii_id_list
 
 
 def bot3():
@@ -283,7 +284,7 @@ def bot3():
     from_date = period[0]
     to_date = period[1]
 
-    fii = get_fii_code_list()[2]
+    fii = get_fii_id_list()[2]
     dados_bot1 = scrape_proceeds(fii, from_date, to_date)
 
     print(dados_bot1)
