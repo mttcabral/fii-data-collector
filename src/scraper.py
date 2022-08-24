@@ -71,6 +71,31 @@ def scrape_id_and_participation():
     with open("data/table_ifix.html", "w") as file:
         file.write(str(table_ifix))
 
+    """
+    # New code
+    """
+    # pd.read_html return a list of DataFrames, in the html code "table_ifix"
+    # there is just one table, so the slicing after the command is to pass
+    # the dataframe instead of a list with just one DataFrame
+    df_table_ifix = pd.read_html(str(table_ifix), decimal=',')[0]
+
+    # Dropping undesired columns
+    df_table_ifix = df_table_ifix.drop(
+        columns=["Ação", "Tipo", "Qtde. Teórica"]
+    )
+
+    # Dropping undesired rows
+    number_of_rows = df_table_ifix.shape[0]
+    rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
+    df_table_ifix = df_table_ifix.drop(rows_to_drop)
+
+    dict_table_ifix = df_table_ifix.set_index("Código").T.to_dict()
+
+    print(df_table_ifix)
+    # Writing the dict as JSON
+    # with open('data/FII_id_and_participation.json', 'w') as file:
+    #    json.dump(dict_table_ifix, file)
+
 
 def scrape_closing_quotation():
     """
@@ -288,3 +313,6 @@ def bot3():
     dados_bot1 = scrape_proceeds(fii, from_date, to_date)
 
     print(dados_bot1)
+
+
+scrape_id_and_participation()
