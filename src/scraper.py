@@ -6,10 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import pandas as pd
-import os
 import json
 
 from date import get_period
+from utils import converter
 
 """
 # This file holds all scraping-related logic
@@ -63,38 +63,7 @@ def scrape_id_and_participation():
 
     browser.quit()
 
-    soup = BeautifulSoup(html_content, "html.parser")
-
-    table_ifix = soup.find()
-
-    create_data_dir()
-    with open("data/table_ifix.html", "w") as file:
-        file.write(str(table_ifix))
-
-    """
-    # New code
-    """
-    # pd.read_html return a list of DataFrames, in the html code "table_ifix"
-    # there is just one table, so the slicing after the command is to pass
-    # the dataframe instead of a list with just one DataFrame
-    df_table_ifix = pd.read_html(str(table_ifix), decimal=',')[0]
-
-    # Dropping undesired columns
-    df_table_ifix = df_table_ifix.drop(
-        columns=["Ação", "Tipo", "Qtde. Teórica"]
-    )
-
-    # Dropping undesired rows
-    number_of_rows = df_table_ifix.shape[0]
-    rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
-    df_table_ifix = df_table_ifix.drop(rows_to_drop)
-
-    dict_table_ifix = df_table_ifix.set_index("Código").T.to_dict()
-
-    print(df_table_ifix)
-    # Writing the dict as JSON
-    # with open('data/FII_id_and_participation.json', 'w') as file:
-    #    json.dump(dict_table_ifix, file)
+    converter.html_table_to_json(html_content)
 
 
 def scrape_closing_quotation():
@@ -259,16 +228,6 @@ def scrape_proceeds(fii, from_date, to_date):
     return proceeds
 
 
-def create_data_dir():
-    """
-    # The 'data' folder is included in '.gitignore', if it's the
-    # first time the code is running, it's necessary to create it.
-    """
-    if(not (os.path.isdir('data'))):
-        os.mkdir('data')
-        print("----------Create 'data' directory!----------")
-
-
 def get_fii_id_list():
     """
     # Function task: from 'data/table_ifix.html', collected
@@ -313,6 +272,3 @@ def bot3():
     dados_bot1 = scrape_proceeds(fii, from_date, to_date)
 
     print(dados_bot1)
-
-
-scrape_id_and_participation()
