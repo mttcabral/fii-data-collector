@@ -31,14 +31,18 @@ def scrape_id_and_participation():
 
     # Accessing url and refreshing the page
     browser.get(url)
-    browser.implicitly_wait(10)
     browser.refresh()
 
     try:
-        WebDriverWait(browser, 30).until(EC.presence_of_element_located(
+        WebDriverWait(browser, 10).until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="divContainerIframeB3"]/div/div[1]/form/div[3]/div/table/tbody')))  # noqa: E501
     except:
-        print("bot1: Table not found!")
+        try:
+            browser.refresh()
+            WebDriverWait(browser, 20).until(EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="divContainerIframeB3"]/div/div[1]/form/div[3]/div/table/tbody')))  # noqa: E501
+        except:
+            print("scrape_id_and_participation(): Table not found!")
 
     # By default the table is set to 20 elements per page, by
     # using this command, selenium set 120 elements per page, which
@@ -76,7 +80,7 @@ def scrape_closing_quotation():
     fii_closing_quotation_dict = {}
     fii_id_list = get_fii_id_list()
     # Must be MM/YYYY
-    date = '05/2022'
+    date = '07/2022'
 
     # Setting up browser
     options = Options()
