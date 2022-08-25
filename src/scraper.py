@@ -9,7 +9,7 @@ import pandas as pd
 import json
 
 from date import get_period
-from utils import converter
+from utils import converter, get_fii_id_list
 
 """
 # This file holds all scraping-related logic
@@ -67,6 +67,7 @@ def scrape_id_and_participation():
 
     browser.quit()
 
+    # Output to JSON file
     converter.html_table_to_json(html_content)
 
 
@@ -78,7 +79,7 @@ def scrape_closing_quotation():
     """
 
     fii_closing_quotation_dict = {}
-    fii_id_list = get_fii_id_list()
+    fii_id_list = get_fii_id_list.get_fii_id_list()
     # Must be MM/YYYY
     date = '07/2022'
 
@@ -100,7 +101,7 @@ def scrape_closing_quotation():
 
         try:
             # Wait until the table loads
-            WebDriverWait(browser, 30).until(EC.presence_of_element_located(
+            WebDriverWait(browser, 10).until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="tblResDiario"]/tbody/tr[2]/td/table/tbody')))  # noqa: E501
         except:
             print("bot2: Table not found!")
@@ -233,47 +234,12 @@ def scrape_proceeds(fii, from_date, to_date):
     return proceeds
 
 
-def get_fii_id_list():
-    """
-    # Function task: from 'data/table_ifix.html', collected
-    # by 'scrape_id_and_participation' function, return
-    # a list containing the 'FII' IDs
-    """
-
-    # Relative path = 'data/table_ifix.html'
-    with open('/home/mats/Projects/fii-data-collector/data/table_ifix.html', 'r') as file:
-        table_ifix = file.read()
-        file.close()
-
-    # pd.read_html return a list of DataFrames, in the html code "table_ifix"
-    # there is just one table, so the slicing after the command is to pass
-    # the dataframe instead of a list with just one DataFrame
-    df_table_ifix = pd.read_html(table_ifix)[0]
-
-    # Dropping undesired columns
-    df_table_ifix = df_table_ifix.drop(
-        columns=["Ação", "Part. (%)", "Tipo", "Qtde. Teórica"]
-    )
-
-    # Dropping undesired rows
-    number_of_rows = df_table_ifix.shape[0]
-    rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
-    df_table_ifix = df_table_ifix.drop(rows_to_drop)
-
-    fii_id_list = []
-
-    for x in range(0, len(df_table_ifix.values.tolist())):
-        fii_id_list.append(df_table_ifix.values.tolist()[x][0][0:4])
-
-    return fii_id_list
-
-
 def bot3():
     period = get_period()
     from_date = period[0]
     to_date = period[1]
 
-    fii = get_fii_id_list()[2]
+    fii = get_fii_id_list.get_fii_id_list()[2]
     dados_bot1 = scrape_proceeds(fii, from_date, to_date)
 
     print(dados_bot1)
