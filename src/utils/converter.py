@@ -22,6 +22,9 @@ def html_table_to_json(html_content):
     rows_to_drop = [(number_of_rows-1), (number_of_rows-2)]
     df_table_ifix = df_table_ifix.drop(rows_to_drop)
 
+    # Removing '11' after every id
+    df_table_ifix['Código'] = df_table_ifix['Código'].str[0:4]
+
     # DataFrame to dict
     dict_table_ifix = df_table_ifix.set_index(
         "Código").to_dict()['Part. (%)']
