@@ -133,7 +133,8 @@ def scrape_closing_quotation():
             By.XPATH, desired_column_xpath).get_attribute("innerText")
 
         # The 'FII' of name 'x' have a 'closing_quotation'
-        fii_closing_quotation_dict[fii_id_list[x]] = closing_quotation
+        fii_closing_quotation_dict[fii_id_list[x]] = float(
+            closing_quotation.replace(',', '.'))
 
     browser.quit()
 
