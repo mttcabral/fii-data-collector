@@ -5,7 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-import pandas as pd
 import json
 
 from date import get_period
@@ -140,7 +139,7 @@ def scrape_closing_quotation():
     browser.quit()
 
     # Writing the dict as JSON
-    with open('data/FII_closing_quotation.json', 'w') as file:
+    with open('data/FII_id_closing_quotation.json', 'w') as file:
         json.dump(fii_closing_quotation_dict, file)
 
 
