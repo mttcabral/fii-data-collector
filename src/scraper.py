@@ -123,7 +123,7 @@ def scrape_closing_quotation(browser):
             closing_quotation.replace(',', '.'))
 
     # Writing the dict as JSON
-    with open((dir_handler.get_data_path()+'FII_id_closing_quotation.json'), 'w') as file:
+    with open((dir_handler.get_data_path()+'FII_id_and_closing_quotation.json'), 'w') as file:
         json.dump(fii_closing_quotation_dict, file)
 
 

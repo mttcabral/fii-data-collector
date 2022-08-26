@@ -13,5 +13,6 @@ if __name__ == '__main__':
 
     scraper.scrape_id_and_participation(browser)
     scraper.scrape_closing_quotation(browser)
+    scraper.scrape_proceeds(browser)
 
     browser.quit()
