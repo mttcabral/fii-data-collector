@@ -1,7 +1,7 @@
 from os import write
 import pandas as pd
 import json
-
+from utils import dir_handler
 """
 # This file holds all logic related to conversion (e.g. file A -> B)
 """
@@ -36,11 +36,11 @@ def html_table_to_json(html_content):
         "Código").to_dict()['Part. (%)']
 
     # Writing the dict as JSON
-    with open('data/FII_id_and_participation.json', 'w') as file:
+    with open((dir_handler.get_data_path()+'FII_id_and_participation.json'), 'w') as file:
         json.dump(dict_table_ifix, file)
 
     # Dropping participation (%) and writing again but as a TXT file
     df_table_ifix = df_table_ifix.drop(columns=['Part. (%)'])
 
-    with open('data/FII_id_list.txt', 'w') as file:
+    with open((dir_handler.get_data_path()+'FII_id_list.txt'), 'w') as file:
         file.write(str(df_table_ifix.values.tolist()))
