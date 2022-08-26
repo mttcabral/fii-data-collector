@@ -47,3 +47,9 @@ def html_table_to_json(html_content):
     with open((dir_handler.get_data_path()+'FII_id_list.json'), 'w') as file:
         json.dump(df_table_ifix.values.tolist(), file)
         file.close()
+
+
+def dict_proceeds_to_json(dict_proceeds):
+    # Writing the dict as JSON (id and participation (%))
+    with open((dir_handler.get_data_path()+'FII_id_and_proceed.json'), 'w') as file:
+        json.dump(dict_proceeds, file)

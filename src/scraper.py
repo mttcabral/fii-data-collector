@@ -217,6 +217,6 @@ def scrape_proceeds(browser):
             data.append(span.text)
 
         proceeds = data[5].replace(',', '.')
-        dict_proceeds[fii] = proceeds
+        dict_proceeds[fii] = float(proceeds)
 
-    return dict_proceeds
+    converter.dict_proceeds_to_json(dict_proceeds)
