@@ -13,6 +13,6 @@ def create_data_dir():
 def get_data_path():
     # Get the correct 'data' folder path in any os
     absolute_path = os.path.dirname(__file__)
-    data_path = os.path.join(absolute_path, '..\\data\\')
+    data_path = os.path.join(absolute_path, '..\\..\\data\\')
 
     return data_path
