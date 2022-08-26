@@ -127,7 +127,7 @@ def scrape_closing_quotation(browser):
         json.dump(fii_closing_quotation_dict, file)
 
 
-def scrape_proceeds(browser, fii, from_date, to_date):
+def scrape_proceeds(browser):
     """
     # Function task: scrape the proceeds
     # Note: The translation (Portuguese (provento) -> English  (proceeds))
@@ -137,88 +137,86 @@ def scrape_proceeds(browser, fii, from_date, to_date):
     # GitHub link: https://github.com/PLPaulino
     """
 
-    print(f"\nFII: {fii}")
+    dict_proceeds = {}
 
-    # Changing date format from dd/mm/yyyy to yyyy/mm/dd
-    from_date = from_date.split(
-        '/')[2] + '-' + from_date.split('/')[1] + '-' + from_date.split('/')[0]
-    to_date = to_date.split(
-        '/')[2] + '-' + to_date.split('/')[1] + '-' + to_date.split('/')[0]
+    fii_id_list = get_fii_id_list.get_fii_id_list()
 
-    url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/ListarTitulosNoticias?agencia=18&palavra={fii}&dataInicial={from_date}&dataFinal={to_date}'
-    browser.get(url)
+    for x in range(len(fii_id_list)):
+        fii = fii_id_list[x]
 
-    # The place where the proceeds can be found is called "Notícias"
-    # (B3's nomenclature) where "Notícias" (Portuguese) means "News" (English)
-    news_json = WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body")))
-    html_json = news_json.get_attribute('outerHTML')
-    soup_json = BeautifulSoup(html_json, 'html.parser')
+        period = get_period()
+        from_date = period[0]
+        to_date = period[1]
 
-    dict_news = json.loads(soup_json.text)
+        # Changing date format from dd/mm/yyyy to yyyy/mm/dd
+        from_date = from_date.split(
+            '/')[2] + '-' + from_date.split('/')[1] + '-' + from_date.split('/')[0]
+        to_date = to_date.split(
+            '/')[2] + '-' + to_date.split('/')[1] + '-' + to_date.split('/')[0]
 
-    news_credentials = []
-    identifier = "Aviso aos Cotistas"
+        url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/ListarTitulosNoticias?agencia=18&palavra={fii}&dataInicial={from_date}&dataFinal={to_date}'
+        browser.get(url)
 
-    # List of news containing the identifier
-    desired_news = (list(filter(lambda dict: identifier in str(
-        dict['NwsMsg']['headline']), dict_news)))
+        # The place where the proceeds can be found is called "Notícias"
+        # (B3's nomenclature) where "Notícias" (Portuguese) means "News" (English)
+        news_json = WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located((By.XPATH, "/html/body")))
+        html_json = news_json.get_attribute('outerHTML')
+        soup_json = BeautifulSoup(html_json, 'html.parser')
 
-    # The desired_news is the one containing "N"
-    # at the end
-    for x in range(len(desired_news)):
-        if (desired_news[x]['NwsMsg']['headline'][-2] == 'N'):
-            id_news = desired_news[x]['NwsMsg']['id']
-            date_news = desired_news[x]['NwsMsg']['dateTime']
-            break
+        dict_news = json.loads(soup_json.text)
 
-    news_credentials.append(id_news)
-    news_credentials.append(date_news)
+        news_credentials = []
+        identifier = "Aviso aos Cotistas"
 
-    # Applying the 'news_credentials' to get the correct url
-    url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/Detail?idNoticia={news_credentials[0]}&agencia=18&dataNoticia={news_credentials[1]}'
-    browser.get(url)
+        # List of news containing the identifier
+        desired_news = (list(filter(lambda dict: identifier in str(
+            dict['NwsMsg']['headline']), dict_news)))
 
-    # The link for the table is inside <pre> (HTML Tag)
-    pre_tag = WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.ID, "conteudoDetalhe")))
-    pre_tag_html = pre_tag.get_attribute('outerHTML')
-    soup_pre_tag = BeautifulSoup(pre_tag_html, 'html.parser')
+        # The desired_news is the one containing "N"
+        # at the end
+        for x in range(len(desired_news)):
+            if (desired_news[x]['NwsMsg']['headline'][-2] == 'N'):
+                id_news = desired_news[x]['NwsMsg']['id']
+                date_news = desired_news[x]['NwsMsg']['dateTime']
+                break
 
-    # Collecting all links inside <pre> tag
-    for a_tag in soup_pre_tag.findAll('a'):
-        links = str(a_tag['href']).split('=')
-        id_table = links[1]
+        news_credentials.append(id_news)
+        news_credentials.append(date_news)
 
-    url_table = 'https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=' + \
-        id_table+'&#toolbar=0'
+        # Applying the 'news_credentials' to get the correct url
+        url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/Detail?idNoticia={news_credentials[0]}&agencia=18&dataNoticia={news_credentials[1]}'
+        browser.get(url)
 
-    browser.get(url_table)
+        # The link for the table is inside <pre> (HTML Tag)
+        pre_tag = WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located((By.ID, "conteudoDetalhe")))
+        pre_tag_html = pre_tag.get_attribute('outerHTML')
+        soup_pre_tag = BeautifulSoup(pre_tag_html, 'html.parser')
 
-    WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.XPATH, '/html/body/table[2]')))
+        # Collecting all links inside <pre> tag
+        for a_tag in soup_pre_tag.findAll('a'):
+            links = str(a_tag['href']).split('=')
+            id_table = links[1]
 
-    table = browser.find_element(By.XPATH, '/html/body/table[2]')
-    table_html = table.get_attribute('outerHTML')
-    soup_table = BeautifulSoup(table_html, 'html.parser')
+        url_table = 'https://fnet.bmfbovespa.com.br/fnet/publico/exibirDocumento?id=' + \
+            id_table+'&#toolbar=0'
 
-    # Scraping the data inside the table
-    data = []
-    for span in soup_table.findAll('span', class_='dado-valores'):
-        data.append(span.text)
+        browser.get(url_table)
 
-    proceeds = data[5].replace(',', '.')
-    proceeds = {fii: proceeds}
+        WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located((By.XPATH, '/html/body/table[2]')))
 
-    return proceeds
+        table = browser.find_element(By.XPATH, '/html/body/table[2]')
+        table_html = table.get_attribute('outerHTML')
+        soup_table = BeautifulSoup(table_html, 'html.parser')
 
+        # Scraping the data inside the table
+        data = []
+        for span in soup_table.findAll('span', class_='dado-valores'):
+            data.append(span.text)
 
-def bot3(browser):
-    period = get_period()
-    from_date = period[0]
-    to_date = period[1]
+        proceeds = data[5].replace(',', '.')
+        dict_proceeds[fii] = proceeds
 
-    fii = get_fii_id_list.get_fii_id_list()[2]
-    dados_bot1 = scrape_proceeds(browser, fii, from_date, to_date)
-
-    print(dados_bot1)
+    return dict_proceeds
