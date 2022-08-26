@@ -35,8 +35,8 @@ def scrape_id_and_participation():
     browser.refresh()
 
     try:
-        WebDriverWait(browser, 10).until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="divContainerIframeB3"]/div/div[1]/form/div[3]/div/table/tbody')))  # noqa: E501
+        WebDriverWait(browser, 10).until(EC.invisibility_of_element_located(
+            (By.CLASS_NAME, 'backdrop')))  # noqa: E501
     except:
         try:
             browser.refresh()
