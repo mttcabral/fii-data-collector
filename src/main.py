@@ -1,3 +1,18 @@
+from concurrent.futures.process import BrokenProcessPool
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
+
 import scraper
 
-scraper.scrape_id_and_participation()
+if __name__ == '__main__':
+    # Setting up browser
+    options = Options()
+    options.headless = False
+    browser = webdriver.Firefox(
+        options=options, executable_path=GeckoDriverManager().install())
+
+    scraper.scrape_id_and_participation(browser)
+    scraper.scrape_closing_quotation(browser)
+
+    browser.quit()

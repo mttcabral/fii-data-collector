@@ -1,10 +1,7 @@
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
 import json
 
@@ -16,19 +13,13 @@ from utils import converter, get_fii_id_list, dir_handler
 """
 
 
-def scrape_id_and_participation():
+def scrape_id_and_participation(browser):
     """
     # Function task: scrape the ID and participation (in %)
     # of each 'FII' (from B3's site) and save it as a HTML file
     """
 
     url = "https://sistemaswebb3-listados.b3.com.br/indexPage/theorical/IFIX?language=pt-br"  # noqa: E501
-
-    # Setting up browser
-    options = Options()
-    options.headless = False
-    browser = webdriver.Firefox(
-        options=options, executable_path=GeckoDriverManager().install())
 
     # Accessing url and refreshing the page
     browser.get(url)
@@ -66,13 +57,11 @@ def scrape_id_and_participation():
     # Get the HTML code of the table
     html_content = table.get_attribute("outerHTML")
 
-    browser.quit()
-
     # Output to JSON file
     converter.html_table_to_json(html_content)
 
 
-def scrape_closing_quotation():
+def scrape_closing_quotation(browser):
     """
     # Function task: scrape the closing quotation and
     # save it in a JSON file, where the key is the 'FII'
@@ -83,11 +72,6 @@ def scrape_closing_quotation():
     fii_id_list = get_fii_id_list.get_fii_id_list()
     # Must be MM/YYYY
     date = '07/2022'
-
-    # Setting up browser
-    options = Options()
-    options.headless = False
-    browser = webdriver.Firefox(options=options)
 
     # The B3's stores the closing quotation in the following url
     base_url = 'https://bvmf.bmfbovespa.com.br/SIG/FormConsultaMercVista.asp?strTipoResumo=RES_MERC_VISTA&strSocEmissora={fii_name}&strDtReferencia={date}&strIdioma=P&intCodNivel=2&intCodCtrl=160'  # noqa: E501
@@ -138,14 +122,12 @@ def scrape_closing_quotation():
         fii_closing_quotation_dict[fii_id_list[x]] = float(
             closing_quotation.replace(',', '.'))
 
-    browser.quit()
-
     # Writing the dict as JSON
     with open((dir_handler.get_data_path()+'FII_id_closing_quotation.json'), 'w') as file:
         json.dump(fii_closing_quotation_dict, file)
 
 
-def scrape_proceeds(fii, from_date, to_date):
+def scrape_proceeds(browser, fii, from_date, to_date):
     """
     # Function task: scrape the proceeds
     # Note: The translation (Portuguese (provento) -> English  (proceeds))
@@ -156,10 +138,6 @@ def scrape_proceeds(fii, from_date, to_date):
     """
 
     print(f"\nFII: {fii}")
-
-    option = Options()
-    option.headless = True
-    browser = webdriver.Firefox(options=option)
 
     # Changing date format from dd/mm/yyyy to yyyy/mm/dd
     from_date = from_date.split(
@@ -235,12 +213,12 @@ def scrape_proceeds(fii, from_date, to_date):
     return proceeds
 
 
-def bot3():
+def bot3(browser):
     period = get_period()
     from_date = period[0]
     to_date = period[1]
 
     fii = get_fii_id_list.get_fii_id_list()[2]
-    dados_bot1 = scrape_proceeds(fii, from_date, to_date)
+    dados_bot1 = scrape_proceeds(browser, fii, from_date, to_date)
 
     print(dados_bot1)
