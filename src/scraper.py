@@ -4,6 +4,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.firefox import GeckoDriverManager
 from bs4 import BeautifulSoup
 import json
 
@@ -25,8 +26,9 @@ def scrape_id_and_participation():
 
     # Setting up browser
     options = Options()
-    options.headless = True
-    browser = webdriver.Firefox(options=options)
+    options.headless = False
+    browser = webdriver.Firefox(
+        options=options, executable_path=GeckoDriverManager().install())
 
     # Accessing url and refreshing the page
     browser.get(url)
