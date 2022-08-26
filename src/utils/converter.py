@@ -2,6 +2,7 @@ from os import write
 import pandas as pd
 import json
 from utils import dir_handler
+
 """
 # This file holds all logic related to conversion (e.g. file A -> B)
 """
@@ -9,9 +10,9 @@ from utils import dir_handler
 
 def html_table_to_json(html_content):
     """
-    # This method will create a JSON and TXT file.
-    # JSON file will contain FII id and participation (%).
-    # TXT file will contain only a list of the FII id.
+    # This method will create two JSON files.
+    # File 1: Contains all FII id and participation (%).
+    # File 2: Contains only a list of FII id.
     """
     # pd.read_html return a list of DataFrames, in the html code "table_ifix"
     # there is just one table, so the slicing after the command is to pass
@@ -35,12 +36,14 @@ def html_table_to_json(html_content):
     dict_table_ifix = df_table_ifix.set_index(
         "Código").to_dict()['Part. (%)']
 
-    # Writing the dict as JSON
+    # Writing the dict as JSON (id and participation (%))
     with open((dir_handler.get_data_path()+'FII_id_and_participation.json'), 'w') as file:
         json.dump(dict_table_ifix, file)
 
-    # Dropping participation (%) and writing again but as a TXT file
+    # Dropping participation (%)
     df_table_ifix = df_table_ifix.drop(columns=['Part. (%)'])
 
-    with open((dir_handler.get_data_path()+'FII_id_list.txt'), 'w') as file:
-        file.write(str(df_table_ifix.values.tolist()))
+    # Writing again (only id)
+    with open((dir_handler.get_data_path()+'FII_id_list.json'), 'w') as file:
+        json.dump(df_table_ifix.values.tolist(), file)
+        file.close()

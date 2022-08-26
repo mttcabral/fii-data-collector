@@ -1,4 +1,3 @@
-from concurrent.futures.process import BrokenProcessPool
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
