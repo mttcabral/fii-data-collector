@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import json
 
 from date import get_period
-from utils import converter, get_fii_id_list
+from utils import converter, get_fii_id_list, dir_handler
 
 """
 # This file holds all scraping-related logic
@@ -86,7 +86,7 @@ def scrape_closing_quotation():
 
     # Setting up browser
     options = Options()
-    options.headless = True
+    options.headless = False
     browser = webdriver.Firefox(options=options)
 
     # The B3's stores the closing quotation in the following url
@@ -141,7 +141,7 @@ def scrape_closing_quotation():
     browser.quit()
 
     # Writing the dict as JSON
-    with open('data/FII_id_closing_quotation.json', 'w') as file:
+    with open((dir_handler.get_data_path()+'FII_id_closing_quotation.json'), 'w') as file:
         json.dump(fii_closing_quotation_dict, file)
 
 

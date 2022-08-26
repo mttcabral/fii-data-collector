@@ -1,3 +1,6 @@
+from utils import dir_handler
+
+
 def get_fii_id_list():
     """
     # Function task: from 'data/table_ifix.html', collected
@@ -5,8 +8,7 @@ def get_fii_id_list():
     # a list containing the 'FII' IDs
     """
 
-    # Relative path = 'data/table_ifix.html'
-    with open('data/FII_id_list.txt', 'r') as file:
+    with open((dir_handler.get_data_path()+'FII_id_list.txt'), 'r') as file:
         fii_id_list = file.read()
         file.close()
 
