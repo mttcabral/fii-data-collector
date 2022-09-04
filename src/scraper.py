@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
 import json
 
-from date import get_period
 from utils import converter, get_fii_id_list, dir_handler
 
 """
@@ -70,8 +69,9 @@ def scrape_closing_quotation(browser):
 
     fii_closing_quotation_dict = {}
     fii_id_list = get_fii_id_list.get_fii_id_list()
-    # Must be MM/YYYY
-    date = '07/2022'
+
+    print("\nDesired date for scraping the closing quotation (MM/YYYY): ", end='')
+    date = input()
 
     # The B3's stores the closing quotation in the following url
     base_url = 'https://bvmf.bmfbovespa.com.br/SIG/FormConsultaMercVista.asp?strTipoResumo=RES_MERC_VISTA&strSocEmissora={fii_name}&strDtReferencia={date}&strIdioma=P&intCodNivel=2&intCodCtrl=160'  # noqa: E501
@@ -138,21 +138,23 @@ def scrape_proceeds(browser):
     """
 
     dict_proceeds = {}
-
     fii_id_list = get_fii_id_list.get_fii_id_list()
+
+    print(
+        "\nTo scrape the proceed of a FII, a period of 30 days must be specified")
+    print("Start date (DD/MM/YYYY): ", end='')
+    from_date = input()
+    print("End date (DD/MM/YYYY): ", end='')
+    to_date = input()
+
+    # Changing date format from dd/mm/yyyy to yyyy/mm/dd
+    from_date = from_date.split(
+        '/')[2] + '-' + from_date.split('/')[1] + '-' + from_date.split('/')[0]
+    to_date = to_date.split(
+        '/')[2] + '-' + to_date.split('/')[1] + '-' + to_date.split('/')[0]
 
     for x in range(len(fii_id_list)):
         fii = fii_id_list[x]
-
-        period = get_period()
-        from_date = period[0]
-        to_date = period[1]
-
-        # Changing date format from dd/mm/yyyy to yyyy/mm/dd
-        from_date = from_date.split(
-            '/')[2] + '-' + from_date.split('/')[1] + '-' + from_date.split('/')[0]
-        to_date = to_date.split(
-            '/')[2] + '-' + to_date.split('/')[1] + '-' + to_date.split('/')[0]
 
         url = f'https://sistemasweb.b3.com.br/PlantaoNoticias/Noticias/ListarTitulosNoticias?agencia=18&palavra={fii}&dataInicial={from_date}&dataFinal={to_date}'
         browser.get(url)
