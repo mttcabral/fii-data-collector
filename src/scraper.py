@@ -51,7 +51,8 @@ def scrape_id_and_participation(browser):
         select_object.select_by_visible_text("120")
 
     # Find the table
-    table = browser.find_element(By.TAG_NAME, "table")
+    table = browser.find_element(
+        By.XPATH, "/html/body/app-root/app-theorical-portfolio/div/div/div[1]/form/div[3]/div/table")
 
     # Get the HTML code of the table
     html_content = table.get_attribute("outerHTML")
@@ -130,7 +131,7 @@ def scrape_closing_quotation(browser):
 def scrape_proceeds(browser):
     """
     # Function task: scrape the proceeds
-    # Note: The translation (Portuguese (provento) -> English  (proceeds))
+    # Note: The translation (Portuguese (provento) -> English (proceeds))
     # might not be very accurate
     #
     # The main logic is from Pedro Lucas Paulino
