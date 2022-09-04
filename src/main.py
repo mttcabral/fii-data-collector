@@ -1,6 +1,8 @@
+from msilib.schema import ServiceInstall
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service
 
 import scraper
 from utils import dir_handler
@@ -12,7 +14,7 @@ if __name__ == '__main__':
     options = Options()
     options.headless = False
     browser = webdriver.Firefox(
-        options=options, executable_path=GeckoDriverManager().install())
+        options=options, service=Service(GeckoDriverManager().install()))
 
     scraper.scrape_id_and_participation(browser)
     scraper.scrape_closing_quotation(browser)
